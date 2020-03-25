@@ -1,0 +1,59 @@
+{ "site_id": 1504, 
+"site_name": "Josh's Sample Boiler Room", 
+"Specs":
+ { "modbus_rtu":
+ { "Port1":{ 
+      "serial_no":"AQ002Q52",
+ "baud_rate": 19200,
+ "parity": "E",
+ "data_bits": 8,
+ "stop_bits": 1,
+ "Devices":{ 
+      "Boiler1-knight": {
+        "device_no": 1,
+        "device_id": 1501,
+        "registers": {
+             "30004": { "name": "System Cascade Setpoint", "type": 
+            "float", "units": "C", "count": 1, "CoV":0.05, "Measure":3, "sensor_id": 150130004, "scale":1, 
+            "signed":0
+                    },
+        "30005":{ "name": "System Pump Speed", "type": "float", "units": "%", "count": 1, "CoV":0.05, 
+            "Measure":3, "sensor_id": 150130005, "scale":1, "signed":1
+                    },
+         "30006":{ "name": "Cascade Total Power", "type": "float", "units": "%", "count": 1, "CoV":0.05, 
+            "Measure":3, "sensor_id": 150130006, "scale":1, "signed":1
+                    },
+         "30008":{ "name": "Outlet Setpoint", "type": "float", "units": "C", "count": 1, "CoV":0.05, 
+            "Measure":3, "sensor_id": 150130008, "scale":0.1, "signed":0
+                    },
+          "30009":{
+                
+            "name": "Outlet Temperature", "type": "float", "units": "C", "count": 1, "CoV":0.05, "Measure":3, 
+            "sensor_id": 150130009, "scale":0.1, "signed":0
+                    },
+          "30010":{ "name": "Inlet Temperature", "type": "float", "units": "C", "count": 1, "CoV":0.05, 
+            "Measure":3, "sensor_id": 150130010, "scale":0.1, "signed":0
+                    },
+          "30011":{ "name":"Flue Temperature", "type": "float", "units": "C", "count": 1, "CoV":0.05, 
+            "Measure":3, "sensor_id": 150130011, "scale":0.1, "signed":0
+                    },
+          "40004":{ "name":"Tank SetPoint", "type": "float", "units": "C", "count": 1, "CoV":0.05, "Measure":3, 
+            "sensor_id": 150140004, "scale":0.1, "signed":0
+                       },
+          "40005":{ "name":"Tank temperature", "type": "float", "units": "C", "count": 1, "CoV":0.05, 
+            "Measure":3, "sensor_id": 150140005, "scale":0.1, "signed":0
+                       },
+         "40006":{ "name":"Outdoor Temperature", "type": "float", "units": "C", "count": 1, "CoV":0.05, 
+            "Measure":3, "sensor_id": 150140006, "scale":0.1, "signed":0
+                          },
+         "40007":{ "name":"System Supply Temperature", "type": "float", "units": "C", "count": 1, "CoV":0.05, 
+            "Measure":3, "sensor_id": 150140007, "scale":0.1, "signed":0
+                      }
+                   
+        }           
+        }
+        }
+      }
+    }
+  }
+ }

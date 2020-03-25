@@ -1,0 +1,65 @@
+{
+  "site_id": 1504,
+  "site_name": "Josh's Sample Boiler Room",
+  "Specs": {
+
+    "modbus_tcp": {
+      "Boiler1": {
+        "device_no": 1,
+        "ip_address": "10.20.0.188",
+        "port": 502,
+        "device_id": 150401,
+        "unit_address":1,
+        "registers": {
+          "40001": {
+            "name": "HTWS",
+            "type": "float",
+            "units": "F",
+            "count": 1,
+            "CoV":20,
+            "Measure":"Temperature",
+            "sensor_id": 15040101,
+            "scale":1,
+            "signed":1 
+          },
+          "40003": {
+            "name": "HTWR",
+            "type": "float",
+            "units": "F",
+            "count": 1,
+            "CoV":20,
+            "Measure":"Temperature",
+            "sensor_id": 15040102,
+            "scale":1,
+            "signed":1 
+
+          },
+          "40005": {
+            "name": "DHWS",
+            "type": "float",
+            "units": "F",
+            "count": 1,
+            "CoV":20,
+            "Measure":"Temperature",
+            "sensor_id": 15040103,
+            "scale":1,
+            "signed":1
+
+          },
+          "40007": {
+            "name": "DHWR",
+            "type": "float",
+            "units": "F",
+            "count": 1,
+            "CoV":20,
+            "sensor_id": 15040104,
+            "Measure":"Temperature",
+            "scale":1,
+            "signed":1 
+
+          }
+        }
+      }
+    }
+}
+}

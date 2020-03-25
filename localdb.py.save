@@ -1,0 +1,51 @@
+#Script to write write data in a local influx db and publish the unpublished data when internet connection is restored
+import time
+import socket
+import psycopg2
+from AWSclient import AWSclient
+cntd=1  #global variable to keep the status of connection in binary
+class localdb:
+  conn=None
+
+#Funtion to check if there is a connection to the azure server
+  def connection():
+     self.conn = AWSclient.conn
+     return self.conn
+
+#Function to write the data into a local influx db
+  def write_to_localdb(timestamp,sensor_id,s,units,type,online):
+     conn = psycopg2.connect("dbname=sensor_data user=postgres password=15cs420 host=localhost")
+     cur=conn.cursor()
+     cur.execute("insert into ne_boiler_test values (%s,%s,%s,%s,%s,%s)",())
+     conn.commit()  
+#Function to publishing unpublished data 
+async def pub_offline_data(hostname):
+   client=influxdb.InfluxDBClient()
+   client.switch_database('SensorDataDB')
+   data=client.query("select * from Sensor_Data order by time desc")
+   #switch=1
+   for i in data:
+       for count2,j in enumerate(i):
+          if j['Online']==0 : # checking to see  the data which are not published(online=0)
+             try:
+#sending the unpublished data to azure in json
+                msg = '"Time": "{}", "Device":"{}", "Value": "{}","Units":"{}","Type":"{}"' 
+                msg=msg.format(j['Time'],j['Device'],j['Value'],j['Units'],j['Type'])
+                msg = '{'+msg+'}'
+                message=Message(msg)
+#                print(message,"#########sensing from localdb########")
+                azclient = iot_hub_init(hostname)
+                await azclient.connect()
+                await azclient.send_message(message)
+                await azclient.disconnect()
+                time.sleep(2)
+                if (i[count2+1]['Online']==1):
+                   time.sleep(1)
+                   break
+                time.sleep(1)
+             except Exception as err:
+                traceback.print_exc()
+#A= asyncio.run(is_connected("HostName=NE-RPi-test.azure-devices.net;DeviceId=RPiDev01;SharedAccessKey=sHqAwsECVHJDPEvEfPmpo5zO/KQe72BajyU82ad1v78="))
+#print(A)
+
+
